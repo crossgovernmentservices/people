@@ -2,6 +2,8 @@
 
 Data representation for civil servants, initially powering profiles.
 
+This service is smoke and mirrors and doesn't care about authentication nor authorisation (yet).
+
 # Init
 
 Once the stack is up, in a new terminal initialise the database with:
