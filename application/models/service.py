@@ -21,6 +21,6 @@ class Service(db.Model):
     __tablename__ = 'service'
 
     id = db.Column('id', db.Integer(), primary_key=True)
-    info = db.Column('info', JSONB, nullable=False)
+    data = db.Column('data', JSONB, nullable=False)
     has_access = db.Column('has_access', db.Boolean(), nullable=False)
     created_ts = db.Column(db.DateTime(timezone=True), server_default=text('NOW()'))
