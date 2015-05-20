@@ -8,7 +8,8 @@ from application.extensions import (
     db,
     migrate,
     api_scaffold,
-    auth
+    auth,
+    cors,
 )
 from application import (
     auth_blueprint,
@@ -31,6 +32,7 @@ def register_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db)
     api_scaffold.init_app(app, db, auth)
+    cors.init_app(app)
     return None
 
 def register_blueprints(app):

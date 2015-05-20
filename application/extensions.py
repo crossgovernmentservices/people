@@ -17,3 +17,6 @@ api_scaffold = APIScaffold()
 
 from flask_httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
+
+from flask_cors import CORS
+cors = CORS()
