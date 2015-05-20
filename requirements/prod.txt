@@ -6,7 +6,7 @@ MarkupSafe==0.23
 Werkzeug==0.10.4
 Jinja2==2.7.3
 itsdangerous==0.24
--e git+https://github.com/opyate/flask_sandboy@6712e6811c0af61e392b77385e62f3d15d2dd79b#egg=flask-sandboy
+-e git+https://github.com/opyate/flask_sandboy@d3edc59772bfc9fedbbc09535aafa05643904a30#egg=flask-sandboy
 Flask-Cors
 
 # Database
