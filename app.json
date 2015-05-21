@@ -1,0 +1,10 @@
+{
+  "name": "People Service",
+  "description": "With which to manage people profiles.",
+  "repository": "https://github.com/crossgovernmentservices/people",
+  "logo": "https://raw.githubusercontent.com/alphagov/govuk_template/master/source/assets/images/gov.uk_logotype_crown.png",
+  "keywords": ["python", "flask", "postgresql"],
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ]
+}
