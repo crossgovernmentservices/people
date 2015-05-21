@@ -1,5 +1,7 @@
 # People Service
 
+[![Build Status](https://travis-ci.org/crossgovernmentservices/people.svg)](https://travis-ci.org/crossgovernmentservices/people)
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Data representation for civil servants, initially powering profiles.

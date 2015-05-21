@@ -10,6 +10,7 @@ from application.extensions import (
     api_scaffold,
     auth,
     cors,
+    commit_handlers,
 )
 from application import (
     auth_blueprint,

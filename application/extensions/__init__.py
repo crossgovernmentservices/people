@@ -12,7 +12,7 @@ migrate = Migrate()
 from flask_cache import Cache
 cache = Cache()
 
-from .models import APIScaffold
+from application.models import APIScaffold
 api_scaffold = APIScaffold()
 
 from flask_httpauth import HTTPBasicAuth

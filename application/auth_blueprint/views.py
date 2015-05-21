@@ -9,13 +9,13 @@ from flask import (
     jsonify,
     abort
 )
+import os
 from ..extensions import auth, db
 
 
 blueprint = Blueprint(
     'auth',
-    __name__)#,
-#    url_prefix='/')
+    __name__)
 
 @blueprint.route('/session', methods=['POST'])
 def session():
@@ -46,5 +46,4 @@ def get_password(username):
     # this works, because all Sandboy models are decorated,
     db.session.execute('SET search_path TO "%s"' % username)
 
-    # short-circuit - we don't have auth yet.
-    return 'hunter2'
+    return os.environ.get('API_TOKEN', 'hunter2')
