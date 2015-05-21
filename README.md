@@ -1,5 +1,7 @@
 # People Service
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 Data representation for civil servants, initially powering profiles.
 
 This service is smoke and mirrors and doesn't care about authentication nor authorisation (yet).
