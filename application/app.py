@@ -11,6 +11,7 @@ from application.extensions import (
     auth,
     cors,
     commit_handlers,
+    mail,
 )
 from application import (
     auth_blueprint,
@@ -34,6 +35,7 @@ def register_extensions(app):
     migrate.init_app(app, db)
     api_scaffold.init_app(app, db, auth)
     cors.init_app(app)
+    mail.init_app(app)
     return None
 
 def register_blueprints(app):

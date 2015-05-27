@@ -20,3 +20,6 @@ auth = HTTPBasicAuth()
 
 from flask_cors import CORS
 cors = CORS()
+
+from flask.ext.mail import Mail
+mail = Mail()

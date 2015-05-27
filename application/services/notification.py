@@ -1,5 +1,7 @@
 from twilio.rest import TwilioRestClient
 import os
+from flask.ext.mail import Message
+from application.extensions import mail
 
 
 class Notification(object):
@@ -12,8 +14,12 @@ class Notification(object):
         if transport == 'sms':
             self._notify_sms(phone_number, message)
         else:
-            # TODO email, etc
-            pass
+            self._notify_email(email, message)
+
+    def _notify_email(self, email, message):
+         msg = Message(message,
+            recipients=[email])
+         mail.send(msg)
 
     def _notify_sms(self, phone_number, message):
 
