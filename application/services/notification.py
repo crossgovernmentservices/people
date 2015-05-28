@@ -10,18 +10,12 @@ class Notification(object):
     TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
     TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
 
-    def notify(self, email, phone_number, message, transport='sms'):
-        if transport == 'sms':
-            self._notify_sms(phone_number, message)
-        else:
-            self._notify_email(email, message)
-
-    def _notify_email(self, email, message):
+    def notify_email(self, email, message):
          msg = Message(message,
             recipients=[email])
          mail.send(msg)
 
-    def _notify_sms(self, phone_number, message):
+    def notify_sms(self, phone_number, message):
 
         # skip the default show&tell phone number
         if '123456789' not in phone_number:

@@ -14,6 +14,16 @@ class Config(object):
     CORS_ALLOW_HEADERS = ['Content-Type', 'Authorization']
     CORS_ORIGINS= ['http.*']
 
+    MAIL_SERVER = os.environ['MAIL_SERVER'] 
+    # TODO use vars
+    MAIL_PORT = 25 
+    MAIL_USE_TLS = False 
+    # TODO SSL flag isn't False if set to False in config
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = os.environ['MAIL_USERNAME']
+    MAIL_PASSWORD = os.environ['MAIL_PASSWORD']
+    MAIL_DEFAULT_SENDER = 'app37076078@heroku.com'
+
 
 class ProdConfig(Config):
     """Production configuration."""

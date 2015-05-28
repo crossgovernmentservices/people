@@ -3,6 +3,7 @@ from sqlalchemy.event import listens_for
 from flask.ext.sqlalchemy import SignallingSession
 from ..services.notification import Notification
 from ..models.profile import Profile
+import logging
 
 
 notification_service = Notification()
@@ -13,13 +14,17 @@ class NotificationHandler(object):
         for model, operation in changes:
             if model['table_name'] == 'notification' and operation == 'insert':
                 email = request.authorization.username
-                if 'tel' in profile.data:
-                    phone_number = profile.data['tel']
-                    # skip the default show&tell phone number
-                    if '123456789' not in phone_number:
-                        message = model['values']['message']
-                        transport = model['values']['transport']
-                        notification_service.notify(email, phone_number, message, transport)
+                transport = model['values']['transport']
+                message = model['values']['message']
+                if transport == 'sms':
+                    if 'tel' in profile.data:
+                        phone_number = profile.data['tel']
+                        notification_service.notify_sms(phone_number, message)
+                    # else: user has SMS preference, but no phone number.
+                elif transport == 'email':
+                    notification_service.notify_email(email, message)
+                else:
+                    logging.warn('Notification: Invalid transport %s' % transport)
 
 notification_handler = NotificationHandler()
 
