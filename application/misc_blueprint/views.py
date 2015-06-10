@@ -1,5 +1,5 @@
 """
-Login, and for Flask-HTTPAuth hooks.
+Health check, Login, and for Flask-HTTPAuth hooks.
 
 """
 
@@ -14,8 +14,13 @@ from ..extensions import auth, db
 
 
 blueprint = Blueprint(
-    'auth',
+    'misc',
     __name__)
+
+@blueprint.route('/health')
+def health():
+    # TODO check DB
+    return jsonify({'msg': 'success', 'status_code': 200}), 200
 
 @blueprint.route('/session', methods=['POST'])
 def session():

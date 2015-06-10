@@ -14,7 +14,7 @@ from application.extensions import (
     mail,
 )
 from application import (
-    auth_blueprint,
+    misc_blueprint,
 )
 
 def create_app(config_object=ProdConfig):
@@ -39,6 +39,6 @@ def register_extensions(app):
     return None
 
 def register_blueprints(app):
-    auth_blueprint.views.blueprint.app = app
-    app.register_blueprint(auth_blueprint.views.blueprint)
+    misc_blueprint.views.blueprint.app = app
+    app.register_blueprint(misc_blueprint.views.blueprint)
     return None
