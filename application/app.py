@@ -39,6 +39,5 @@ def register_extensions(app):
     return None
 
 def register_blueprints(app):
-    misc_blueprint.views.blueprint.app = app
     app.register_blueprint(misc_blueprint.views.blueprint)
     return None

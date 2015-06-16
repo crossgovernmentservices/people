@@ -47,7 +47,7 @@ def create_user(email):
         db.session.commit()
 
 manager.add_command('server', Server(
-    host='0.0.0.0', port=int(os.environ.get('PORT'))))
+    host='0.0.0.0', port=int(os.environ.get('PORT', '32435'))))
 manager.add_command('shell', Shell(make_context=_make_context))
 manager.add_command('db', MigrateCommand)
 

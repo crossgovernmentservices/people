@@ -7,7 +7,8 @@ from flask import (
     Blueprint,
     request,
     jsonify,
-    abort
+    abort,
+    current_app
 )
 import os
 from ..extensions import auth, db
@@ -29,10 +30,8 @@ def session():
     db.session.execute('CREATE SCHEMA IF NOT EXISTS "%s"' % email)
     db.session.execute('SET search_path TO "%s"' % email)
     db.session.commit()
-
-    with blueprint.app.app_context():
-        db.create_all()
-        db.session.commit()
+    db.create_all()
+    db.session.commit()
 
     # short-circuit
     return jsonify({'msg': 'success', 'status_code': 201}), 201
@@ -50,5 +49,5 @@ def get_password(username):
 
     # this works, because all Sandboy models are decorated,
     db.session.execute('SET search_path TO "%s"' % username)
-
+    current_app.logger.debug('Retrieving password for %s' % username)
     return os.environ.get('API_TOKEN', 'hunter2')

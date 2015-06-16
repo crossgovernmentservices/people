@@ -7,8 +7,6 @@ class Config(object):
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     BCRYPT_LOG_ROUNDS = 13
     ASSETS_DEBUG = False
-    DEBUG_TB_ENABLED = False  # Disable Debug toolbar
-    DEBUG_TB_INTERCEPT_REDIRECTS = False
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
 
     CORS_ALLOW_HEADERS = ['Content-Type', 'Authorization']
@@ -29,7 +27,6 @@ class ProdConfig(Config):
     """Production configuration."""
     ENV = 'prod'
     DEBUG = False
-    DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
@@ -40,7 +37,6 @@ class DevConfig(Config):
     DB_NAME = 'dev.db'
     # Put the db file in project root
     DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
-    DEBUG_TB_ENABLED = True
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
@@ -49,6 +45,7 @@ class DevConfig(Config):
 class TestConfig(Config):
     TESTING = True
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_BINDS = ()
     BCRYPT_LOG_ROUNDS = 1  # For faster tests
     WTF_CSRF_ENABLED = False  # Allows form testing
