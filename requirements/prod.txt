@@ -5,7 +5,7 @@ Werkzeug==0.10.4
 Jinja2==2.7.3
 itsdangerous==0.24
 -e git+https://github.com/UYSio/flask_sandboy@4681c1589c986c291f1d77290ddbcbed25d405ed#egg=flask-sandboy
--e git+https://github.com/UYSio/Flask-Pushrod@e28db695272759eec968c065b786163b9ac4b15d#egg=Flask-Pushrod
+-e git+https://github.com/UYSio/Flask-Pushrod@f7ef39b74ea98d69b601065b88c7571c7c8fb9bc#egg=Flask-Pushrod
 Flask-Cors
 Flask-Mail
 
