@@ -12,6 +12,7 @@ from application.extensions import (
     cors,
     commit_handlers,
     mail,
+    pushrod,
 )
 from application import (
     misc_blueprint,
@@ -36,6 +37,7 @@ def register_extensions(app):
     api_scaffold.init_app(app, db, auth)
     cors.init_app(app)
     mail.init_app(app)
+    pushrod.init_app(app)
     return None
 
 def register_blueprints(app):

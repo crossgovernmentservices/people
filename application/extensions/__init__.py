@@ -23,3 +23,6 @@ cors = CORS()
 
 from flask.ext.mail import Mail
 mail = Mail()
+
+from flask.ext.pushrod import Pushrod
+pushrod = Pushrod()

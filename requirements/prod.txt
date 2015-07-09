@@ -4,7 +4,8 @@ MarkupSafe==0.23
 Werkzeug==0.10.4
 Jinja2==2.7.3
 itsdangerous==0.24
--e git+https://github.com/opyate/flask_sandboy@720b517b43bdca432360b94d12977bff1cfa9cf2#egg=flask-sandboy
+-e git+https://github.com/UYSio/flask_sandboy@4681c1589c986c291f1d77290ddbcbed25d405ed#egg=flask-sandboy
+-e git+https://github.com/UYSio/Flask-Pushrod@e28db695272759eec968c065b786163b9ac4b15d#egg=Flask-Pushrod
 Flask-Cors
 Flask-Mail
 
