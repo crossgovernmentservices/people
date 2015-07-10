@@ -1,0 +1,17 @@
+{% if resources is defined %}
+
+    <h1>Profiles</h1>
+
+    {% for profile in resources %}
+        <h2>Profile <a href="{{ request.path }}/{{ profile.id }}">#{{ profile.id }}</a></h2>
+        <p>created on {{ profile.created_ts }}</p>
+        <pre>{{ profile.data | tojson }}</pre>
+    {% endfor %}
+
+{% else %}
+
+    <h1>Profile #{{ id }}</h1>
+    <p>created on {{ created_ts }}</p>
+    <pre>{{ data | tojson }}</pre>
+
+{% endif %}
