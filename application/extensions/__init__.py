@@ -23,3 +23,6 @@ cors = CORS()
 
 from flask.ext.mail import Mail
 mail = Mail()
+
+from .asset_locator import AssetLocator
+asset_locator = AssetLocator()

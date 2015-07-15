@@ -13,9 +13,11 @@ from application.extensions import (
     commit_handlers,
     mail,
     pushrod,
+    asset_locator,
 )
 from application import (
     misc_blueprint,
+    home_blueprint,
 )
 
 def create_app(config_object=ProdConfig):
@@ -38,8 +40,10 @@ def register_extensions(app):
     cors.init_app(app)
     mail.init_app(app)
     pushrod.init_app(app)
+    asset_locator.init_app(app)
     return None
 
 def register_blueprints(app):
     app.register_blueprint(misc_blueprint.views.blueprint)
+    app.register_blueprint(home_blueprint.views.blueprint)
     return None

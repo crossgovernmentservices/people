@@ -18,6 +18,7 @@ blueprint = Blueprint(
     'misc',
     __name__)
 
+
 @blueprint.route('/health')
 def health():
     # TODO check DB
